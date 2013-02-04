@@ -7,7 +7,7 @@ Please note that I am NOT an Expert Coder. I cobbled this together from differen
 
 <b>I hope this inspires other people to create some other cool relevant content pages for nn+.</b> A good idea would be to be able to look at what is in your XBMC movie/tv library.
 
-<img src="http://postimage.org/image/skk220g9j/">
+<img src="http://s7.postimage.org/zb0jbg3ff/scenereleases.png">
 
 Instructions:
 
