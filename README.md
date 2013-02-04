@@ -14,5 +14,5 @@ Instructions:
 1. Create a new Content Page in Admin...
 2. Paste the contents of "Paste to Content Page" to the body of the content page. Save page.
 3. Copy all both html files to the web root of your NN+ folder (typically /var/www/newznab/www
-4. Download image file from <a href="http://www.mediafire.com/?9e1hqg5f3qz2gmw"> here</a> and extract to your /template/images folder.
+4. Download image file from <a href="http://www.mediafire.com/?vzs24cqgpao14wn"> here</a> and extract to your /template/images folder.
 4. Happy releases..
