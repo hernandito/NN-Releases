@@ -1,0 +1,137 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>FeedEk Jquery RSS/ATOM Feed Plugin Demo</title>
+
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+<script type="text/javascript" >
+(function($){$.fn.FeedEk=function(opt){var def={FeedUrl:'',MaxCount:5,ShowDesc:true,ShowPubDate:true};if(opt){$.extend(def,opt)}var idd=$(this).attr('id');if(def.FeedUrl==null||def.FeedUrl==''){$('#'+idd).empty();return}var pubdt;$('#'+idd).empty().append('<div style="text-align:left; padding:3px;"><img src="loader.gif" /></div>');$.ajax({url:'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num='+def.MaxCount+'&output=json&q='+encodeURIComponent(def.FeedUrl)+'&callback=?',dataType:'json',success:function(data){$('#'+idd).empty();$.each(data.responseData.feed.entries,function(i,entry){$('#'+idd).append('<div class="ItemTitle"><a href="'+entry.link+'" target="_blank" >'+entry.title+'</a></div>');if(def.ShowPubDate){pubdt=new Date(entry.publishedDate);$('#'+idd).append('<div class="ItemDate">'+pubdt.toLocaleDateString()+'</div>')}if(def.ShowDesc)$('#'+idd).append('<div class="ItemContent">'+entry.content+'</div>')})}})}})(jQuery);
+
+</script>
+ 
+<script type="text/javascript" >
+$(document).ready(function(){
+  
+  $('#txtUrl').val('http://rss.cnn.com/rss/edition.rss');
+  $('#txtCount').val('5');
+  $('#chkDate').attr('checked','checked');
+  $('#chkDesc').attr('checked','checked');
+  
+  
+   $('#divRss').FeedEk({
+   FeedUrl : 'http://www.rlslog.net/category/movies/hdrip/feed/?v=1',
+   MaxCount : 45,
+   ShowDesc : true,
+   ShowPubDate: true
+  });
+  
+});
+</script>
+
+<style>
+
+
+
+#divRss {
+  width: 695px;
+	padding: 0px 3px 3px 5px;
+	background-color: #FFF;
+	margin-top: 3px;
+
+-webkit-border-radius: 5px;
+    border-radius: 5px; background-color:#f2f2f2; padding:6px;
+	border-top-width: 1px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999;
+	border-right-color: #818181;
+	border-bottom-color: #818181;
+	border-left-color: #999;
+
+
+}
+
+
+.ItemTitle{
+	font-weight: bold;
+	padding-top: 1px;
+	padding-right: 13px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+	padding-top: 3px;
+	margin-top: 5px;
+}
+.ItemTitle a{
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	color: #4b9701;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: bold;
+}
+.ItemTitle a:hover{
+	color: #C43F3C;
+}
+
+.ItemContent{
+	border-bottom: 1px solid #CACACA;
+	color: #666666;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding-top: 1px;
+	padding-right: 23px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+}
+
+.ItemContent a{
+	color: #4b9701;
+}
+
+.ItemDate{
+	font-size:10px;
+	color:#AAA;
+	padding-left: 13px;
+
+}
+#divRss img {
+	max-width: 660px;
+	max-height: 480px;
+
+	padding-right: 36px;
+
+
+} 
+#divRss embed { max-width:660px;  } 
+#divRss td {
+	font-family: Calibri;
+	font-size: 14px;
+	color: #666;
+	padding-left: 23px;
+} 
+#divRss td a{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #4b9701;
+} 
+
+#divSrc
+{
+color:#888888;
+font-size:11px;
+width:700px;
+}
+</style>
+</head>
+<body>
+
+
+<div id="divRss"></div>
+<br/><br/>
+</body>
+
+</html>
